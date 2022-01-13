@@ -10,6 +10,7 @@
   width: 320px;
   height: 568px;
   margin: auto;
+  margin-top: 30px;
 }
 
 .logo {
@@ -97,3 +98,47 @@
 
 }
 
+.home {
+  background-color: #006B54;
+  position: relative;
+  width: 320px;
+  height: 568px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.hamnav {
+  color: #FFFFFF;
+  background-color: #006B54;
+  position: absolute;
+  width: 26px;
+  height: 17px;
+  left: 31px;
+  top: 55px;
+}
+
+.menubar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  width: 320px;
+  height: 50px;
+  left: 0px;
+  top: 518px;
+  
+  background: #000000;
+}
+
+svg {
+  background-size: contain;
+}
+
+.home-icon {
+  position: absolute;
+  width: 47px;
+  height: 43px;
+  
+  background-color: #000000;
+}
