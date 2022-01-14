@@ -18,7 +18,8 @@ GoGreen is an rewards app where users can record information about green action 
 - See info about the app such as legal info & frequently asked questions
 
 ### Database contains
-- User info
-- Rewards info
-- Uploaded content
-- Earned rewards info
+- User Info
+- Actions Info
+- Rewards Info
+- Uploaded Content
+- Reward Balance Info
