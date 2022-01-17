@@ -1,10 +1,11 @@
 import React from 'react';
+import { FaBars } from 'react-icons/fa';
 
 
 const HamNav = () => {
     return ( 
         <nav className="hamnav">
-            &#9776;
+            <FaBars style={{backgroundColor: "#006B54"}}/>
         </nav>
      );
 }
