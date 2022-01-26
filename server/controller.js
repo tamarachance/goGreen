@@ -1,5 +1,20 @@
-const {sequelize} = require('./sequelize');
-const { bcrypt } = require('bcryptjs');
+require('dotenv').config();
+const { CONNECTION_STRING } = process.env
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize(CONNECTION_STRING, {
+    dialect: "postgres",
+    dialectOptions: {
+        ssl: {
+            // require: true,
+            rejectUnauthorized: false
+        }
+    }
+
+})
+
+//const {sequelize} = require('./sequelize');
+const bcryptjs = require('bcryptjs');
 
 module.exports= {
     createUser: async (req, res) => {
@@ -10,11 +25,11 @@ module.exports= {
             WHERE email = '${email}'
         `);
 
-        if(checkUser[1].rowcount !== 0) {
+        if(checkUser[1].rowCount !== 0) {
             res.status(500).send('User already exists.')
         } else {
-            const salt = bcrypt.genSaltSync(10)
-            const passwordHash = bcrypt.hashSync(password, salt)
+            const salt = bcryptjs.genSaltSync(10)
+            const passwordHash = bcryptjs.hashSync(password, salt)
             await sequelize.query(`
                 INSERT INTO users (name, email, password)
                 VALUES (
@@ -30,6 +45,29 @@ module.exports= {
             `);
 
             res.status(200).send(userInfo)
+        }
+    },
+
+    loginUser: async(req, res) => {
+        let { email, password } = req.body
+        const validUser = await sequelize.query(`
+            SELECT * FROM users
+            WHERE email = ' ${email}'
+        `)
+        //console.log(validUser)
+        if(validUser[1].rowCount === 1) {
+            if(bcryptjs.compareSync(password, validUser[0][0].password)) {
+                let object = {
+                    id: validUser[0][0].id,
+                    name: validUser[0][0].name,
+                    email: validUser[0][0].email
+                }
+                res.status(200).send(object)
+            } else {
+                res.status(500).send('Password Incorrect')
+            }
+        } else {
+            res.status(401).send('Please enter a valid email.')
         }
     }
 }

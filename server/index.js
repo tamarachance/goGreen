@@ -10,10 +10,11 @@ app.use(express.json());
 app.use(cors());
 
 //destructured functions from controller file
-const {createUser} = require("./controller")
+const {createUser, loginUser} = require("./controller")
 
 //endpoints go here
 app.post("/register", createUser)
+app.post("/login", loginUser)
 
 // sequelize.authenticate()
 app.listen(SERVER_PORT, ()=>console.log(`Server is JAMMIN on port ${SERVER_PORT}`));
