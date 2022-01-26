@@ -16,9 +16,16 @@ const Register = (props) => {
 
     const onSubmit = (values) => {
         axios.post("http://localhost:4000/register", values)
-            .then(res => console.log(res.data))
-        // props.loginFunction();
-        // navigate('/home');
+            .then(res => {
+                //console.log(res.data)
+                localStorage.setItem('email', res.data[0][0].email)
+                localStorage.setItem('name', res.data[0][0].name)
+                localStorage.setItem('id', res.data[0][0].id)
+                props.loginFunction();
+                navigate('/home');
+            })
+            .catch(err => console.log(err.response.data))
+        
     }
 
     const validate = (values) => {

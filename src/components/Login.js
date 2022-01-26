@@ -2,6 +2,7 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import { useFormik } from 'formik';
 import Logo from './Logo';
+import axios from 'axios';
 
 const Login = (props) => {
 
@@ -13,9 +14,15 @@ const Login = (props) => {
     }
 
     const onSubmit = (values) => {
-        console.log(`User has successfully logged in.`)
-        props.loginFunction();
-        navigate('/home');
+        axios.post("http://localhost:4000/login", values)
+            .then(res => {
+                localStorage.setItem('email', res.data.email)
+                localStorage.setItem('name', res.data.name)
+                localStorage.setItem('id', res.data.id)
+                props.loginFunction();
+                navigate('/home');
+            })
+            .catch(err => console.log(err.response.data))
     }
 
     const handleClick = () => {navigate('/register')}
