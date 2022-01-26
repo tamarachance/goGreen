@@ -1,8 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-PORT = process.env.PORT || 4000;
+const { SERVER_PORT } = process.env
 
 //middleware
 app.use(express.json());
@@ -15,4 +16,4 @@ const {createUser} = require("./controller")
 app.post("/register", createUser)
 
 // sequelize.authenticate()
-app.listen(PORT, ()=>console.log(`Server is JAMMIN on port ${PORT}`));
+app.listen(SERVER_PORT, ()=>console.log(`Server is JAMMIN on port ${SERVER_PORT}`));
