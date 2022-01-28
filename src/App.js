@@ -21,7 +21,7 @@ const App = () => {
     return ( 
         <div className='App'>
             <Routes>
-                <NavHeader />
+                {/* <NavHeader /> */}
 
                 <Route path="*" element={isLoggedIn ? <Home /> : < Login loginFunction={loginUser}/>}></Route>
                 <Route path="rewards" element={isLoggedIn ? <Rewards /> : < Login loginFunction={loginUser}/>}></Route>

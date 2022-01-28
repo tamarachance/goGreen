@@ -382,6 +382,23 @@
     margin: 0px;
 }
 
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: space-between;
+    padding: 10px;
+    width: 254px;
+    height: 413px;
+    /* left: 20.5px; */
+    top: 105px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background: #FFFFFF;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
 .dzu-dropzone {
     display: flex;
     flex-direction: column;
@@ -401,6 +418,33 @@
     background-color: #ffffff;
     text-align: center;
 }
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    background-color: #ffffff;
+    margin-top: 10px;
+}
+
+.button-container input {
+    background-color: #ffffff;
+}
+
+.upload-container button {
+    position: relative;
+    align-self: center;
+    width: 90px;
+    height: 23px;
+    /* left: 177px;
+    top: 451px; */
+    color: #FFFFFF;
+}
+
+.nav-header {
+    display: none;
+}
+
 /* responsive design */
 
 @media only screen and (max-width: 700px) {
@@ -547,7 +591,10 @@
     }
 
     .upload-container {
+        display: flex;
+        flex-direction: column;
         position: absolute;
+        justify-content: space-between;
         padding: 10px;
         width: 254px;
         height: 413px;
@@ -576,8 +623,25 @@
     }
 
     .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
         background-color: #ffffff;
         margin-top: 10px;
+    }
+
+    .button-container input {
+        background-color: #ffffff;
+    }
+
+    .upload-container button {
+        position: relative;
+        align-self: center;
+        width: 90px;
+        height: 23px;
+        /* left: 177px;
+        top: 451px; */
+        color: #FFFFFF;
     }
 
 }
