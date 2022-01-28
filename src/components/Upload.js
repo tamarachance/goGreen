@@ -35,14 +35,15 @@ function Upload({ fetchUploads }) {
                 }}
             />
             <div className='button-container'>
-                <input type="radio" /> Reduce
+                <input type="radio" /> Reduced your consumption/emission
                 <br />
-                <input type="radio" /> Reuse
+                <input type="radio" /> Reused an item or donated for reuse
                 <br />
-                <input type="radio" /> Recycle
+                <input type="radio" /> Recycled <br />
                 <br />
-                <input type="text" size="lg" />
+                Describe your photo:<input type="text" size="lg" />
             </div>
+            <br />
             <button>Submit</button>
         </div>
         <Footer />

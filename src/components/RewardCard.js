@@ -1,4 +1,5 @@
 import React from "react";
+import image from "../assets/comingSoon.jpg";
 
 const RewardCard = ({ rewardOptions}) => {
     
@@ -6,7 +7,7 @@ const RewardCard = ({ rewardOptions}) => {
         <div className="reward-card"> 
             {rewardOptions.map((rewardOption) => (
                 <div className="reward-preview" key={rewardOption.id}>
-                    <img src={rewardOption.itemImage} alt=" " />
+                    <img src={image} alt=" " />
                     <br />
                     <h3>{rewardOption.itemName}</h3>
                     <br />
