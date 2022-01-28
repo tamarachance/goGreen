@@ -1,12 +1,19 @@
 import React from "react";
 
-const RewardCard = () => {
+const RewardCard = ({ rewardOptions}) => {
+    
     return ( 
         <div className="reward-card"> 
-            <img src="" alt="" />
-            <h3>ItemName</h3>
-            <p>ItemCost</p>
-            <button>Select</button>
+            {rewardOptions.map((rewardOption) => (
+                <div className="reward-preview" key={rewardOption.id}>
+                    <img src={rewardOption.itemImage} alt=" " />
+                    <br />
+                    <h3>{rewardOption.itemName}</h3>
+                    <br />
+                    <p>{rewardOption.itemCost}</p>
+                    <button>Select</button>
+                </div>
+            ))}
         </div>
      );
 }

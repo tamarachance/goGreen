@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import { useFormik } from 'formik';
 import Logo from './Logo';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 const Login = (props) => {
 
@@ -22,7 +23,7 @@ const Login = (props) => {
                 props.loginFunction();
                 navigate('/home');
             })
-            .catch(err => console.log(err.response.data))
+            .catch(err => swal( "Oops, something went wrong.", `${err.response.data}`,"error"))
     }
 
     const handleClick = () => {navigate('/register')}

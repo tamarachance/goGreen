@@ -1,63 +1,53 @@
-import React from "react";
-import Footer from "./Footer";
-import Logo from "./Logo";
-import { useFormik } from "formik";
-import { useNavigate } from "react-router";
+import React from 'react';
+import Logo from './Logo';
+import Footer from './Footer';
+import Dropzone from "react-dropzone-uploader";
+import 'react-dropzone-uploader/dist/styles.css'
 
-const Upload = () => {
-    const navigate = useNavigate()
+function Upload({ fetchUploads }) {
+    const getUploadParams = () => console.log('something uploaded goes here')
+//   const getUploadParams = ({ file }) => {
+//     const body = new FormData()
+//     body.append('image', file)
+//     return {
+//       url: 'http://localhost:8000/api/uploads',
+//       body
+//     };
+//   }
+    const handleSubmit=()=> console.log('you uploaded a photo')
+//   const handleSubmit = (files, allFiles) => {
+//     allFiles.forEach(f => f.remove())
+//     fetchUploads();
+//   }
 
-    const initialValues = {
-        uploadImg: "",
-        actionType: "",
-        actionDescription: ""
-    }
-
-    const onSubmit = () => {
-        console.log("hit")
-        navigate("/home")
-    }
-
-    const validate = (values) => {
-        const errors = {}
-        if(!values.uploadImg) {
-            errors.uploadImg = "You must upload an image."
-        }
-        if(!values.actionType) {
-            errors.actionType = "Please select action type."
-        }
-        return errors
-    }
-
-    const formik = useFormik({
-        initialValues,
-        onSubmit,
-        validate
-    })
-    return ( 
-        <div>
-            <form action="submit" onSubmit={formik.handleSubmit}>
-                <input 
-                    type="img"
-                    name="upload"
-    
-                />
-                <button type="radio" />
-                <button type="radio" />
-                <button type="radio" />
-                <button type="radio" />
-                <button type="radio" />
-                <textarea 
-                    type="text"
-                    rowCount={3}
-                    name="description"
-                    onChange={formik.handleChange}
-                    value={formik.values.actionDescription}
-                    placeholder="Describe your sustainable action."
-                />
-            </form>
+  return (
+    <div className='upload'>
+        <Logo />
+        <div className='upload-container'>  
+            <Dropzone
+                getUploadParams={getUploadParams}
+                onSubmit={handleSubmit}
+                accept="image/*"
+                maxFiles={1}
+                multiple={false}
+                styles={{
+                dropzone: { width: 254, maxHeight: 250}
+                }}
+            />
+            <div className='button-container'>
+                <input type="radio" /> Reduce
+                <br />
+                <input type="radio" /> Reuse
+                <br />
+                <input type="radio" /> Recycle
+                <br />
+                <input type="text" size="lg" />
+            </div>
+            <button>Submit</button>
         </div>
-     );
+        <Footer />
+    </div>
+  );
 }
- 
+
 export default Upload;

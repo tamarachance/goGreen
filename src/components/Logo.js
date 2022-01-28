@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaBars} from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa';
 
 const Logo = () => {
     return ( 

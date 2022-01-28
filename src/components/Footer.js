@@ -3,18 +3,14 @@ import { FaHome, FaPlusCircle, FaStar} from 'react-icons/fa';
 import { useNavigate } from "react-router";
 
 const Footer = () => {
-    const navigate = useNavigate();
 
-    const handleClick = () => {
-        navigate('/upload')
-    }
+    const navigate = useNavigate();
+    
     return ( 
         <div className="menubar">
-            <FaHome />
-            <FaPlusCircle 
-                onClick={handleClick}
-            />
-            <FaStar />
+                <FaHome onClick={()=> navigate('/home')}/>
+                <FaPlusCircle onClick={()=> navigate('/upload')}/>
+                <FaStar onClick={()=> navigate('/rewards')}/>
         </div>
      );
 }

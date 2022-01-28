@@ -67,7 +67,7 @@ module.exports= {
                 res.status(500).send('Password Incorrect')
             }
         } else {
-            res.status(401).send('Please enter a valid email.')
+            res.status(401).send('We do not recognize that email address. Please enter a valid email address.')
         }
     }
 }
