@@ -1,7 +1,8 @@
 import React from 'react';
+import './login.css';
 import {useNavigate} from 'react-router-dom';
 import { useFormik } from 'formik';
-import Logo from './Logo';
+import Logo from '../Logo/Logo';
 import axios from 'axios';
 import swal from 'sweetalert';
 

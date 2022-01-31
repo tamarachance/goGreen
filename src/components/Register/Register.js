@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import Logo from './Logo';
+import Logo from '../Logo/Logo';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 

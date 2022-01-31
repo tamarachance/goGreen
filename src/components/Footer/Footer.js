@@ -1,4 +1,5 @@
 import React from "react";
+import './footer.css';
 import { FaHome, FaPlusCircle, FaStar} from 'react-icons/fa';
 import { useNavigate } from "react-router";
 

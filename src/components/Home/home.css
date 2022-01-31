@@ -1,0 +1,117 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* width: 320px;
+    height: 568px; */
+    height: 100vh;
+    margin: auto;
+    margin-top: 30px;
+
+    background-color: #006B54;
+
+}
+
+/* .home .logo {
+    margin: 0px;
+} */
+
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    margin-top: 30px;
+
+    /* position: relative; */
+    background-color: #006B54;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 58px;
+    line-height: 68px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.home .points-container {
+    position: absolute;
+    width: 254px;
+    height: 200px;
+    /* left: 368px; */
+    top: 135px;
+    /* margin: 30px; */
+  
+    background: #FFFFFF;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.home .points-container h2 {
+    background-color: #fff;
+    height: 20%;    
+    text-align: center;
+}
+
+.points-container h1 {
+    background-color: #fff;
+    height: 15%;
+    text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .home .logo {
+        margin-top: 30px;
+    }
+
+    .home  .logo svg {
+        display: inline;
+        position: relative;
+        color: white;
+        background-color: #006B54;
+        width: 30px;
+        height: 30px;
+    }
+
+    .home {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        margin: 0 0 0 0;
+    }
+
+    .home .points-container {
+        position: absolute;
+        width: 254px;
+        height: 200px;
+        left: 33px;
+        top: 135px;
+        margin: 30px;
+      
+        background: #FFFFFF;
+        box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .home .points-container h2 {
+        background-color: #fff;
+        height: 20%;    
+        text-align: center;
+    }
+
+    .home .points-container h1 {
+        background-color: #fff;
+        height: 15%;
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: space-evenly;
+    }
+}

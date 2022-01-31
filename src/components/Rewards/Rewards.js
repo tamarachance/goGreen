@@ -1,11 +1,14 @@
 import React from "react";
+import './rewards.css';
 import { useState } from "react";
-import Footer from "./Footer";
-import Logo from "./Logo";
-import RewardCard from "./RewardCard";
+import Footer from "../Footer/Footer";
+import Logo from "../Logo/Logo";
+import RewardCard from "../RewardCard/RewardCard";
+import NavHeader from '../NavHeader/NavHeader';
+import NavSide from '../NavSide/NavSide';
 
 
-const Rewards = () => {
+const Rewards = (props) => {
 
     const [rewardOptions, setRewardOptions] = useState([
         { id: 1, itemName: "Hot/Cold Tumbler", itemCost: "1500 pts" },
@@ -16,7 +19,9 @@ const Rewards = () => {
 
     return ( 
         <div className="rewards">
-            <Logo />
+            <NavHeader />
+            <NavSide isLoggedIn={props.isLoggedIn} menuClick={props.menuClick} setActive={props.setActive} isActive={props.isActive}/>
+            <Logo menuClick={props.menuClick}/>
             <div className="rewards-container">
                 <RewardCard rewardOptions={rewardOptions}/>
             </div>

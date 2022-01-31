@@ -1,0 +1,40 @@
+.nav-header {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.nav-header h2 {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.nav-header nav ul {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.nav-header a {
+    color: #ffffff;
+
+}
+
+.nav-header button {
+    color: #ffffff;
+    background-color: #006b54;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+    .nav-header {
+        display: none;
+    }
+}

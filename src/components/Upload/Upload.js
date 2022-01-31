@@ -1,10 +1,13 @@
 import React from 'react';
-import Logo from './Logo';
-import Footer from './Footer';
+import './upload.css';
+import Logo from '../Logo/Logo';
+import Footer from '../Footer/Footer';
 import Dropzone from "react-dropzone-uploader";
-import 'react-dropzone-uploader/dist/styles.css'
+import 'react-dropzone-uploader/dist/styles.css';
+import NavHeader from '../NavHeader/NavHeader';
+import NavSide from '../NavSide/NavSide';
 
-function Upload({ fetchUploads }) {
+function Upload({ fetchUploads, menuClick, isLoggedIn, setActive, isActive }) {
     const getUploadParams = () => console.log('something uploaded goes here')
 //   const getUploadParams = ({ file }) => {
 //     const body = new FormData()
@@ -22,7 +25,9 @@ function Upload({ fetchUploads }) {
 
   return (
     <div className='upload'>
-        <Logo />
+        <NavHeader />
+        <NavSide isLoggedIn={isLoggedIn} menuClick={menuClick} setActive={setActive} isActive={isActive}/>
+        <Logo menuClick={menuClick}/>
         <div className='upload-container'>  
             <Dropzone
                 getUploadParams={getUploadParams}

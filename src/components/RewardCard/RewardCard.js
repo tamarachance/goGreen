@@ -1,5 +1,6 @@
 import React from "react";
-import image from "../assets/comingSoon.jpg";
+import './rewardcard.css';
+import image from "../../assets/comingSoon.jpg";
 
 const RewardCard = ({ rewardOptions}) => {
     
