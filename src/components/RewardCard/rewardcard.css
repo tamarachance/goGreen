@@ -81,9 +81,12 @@
     position: relative;
     width: 90px;
     height: 23px;
-    /* left: 177px;
-    top: 451px; */
     color: #FFFFFF;
     background-color: #006B54;
+    border-top-color: #006B54;
+    border-left-color: #006B54;
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: 5px 5px 4px rgb(161 161 161 / 25%);
 }
 
