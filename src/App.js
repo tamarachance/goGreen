@@ -14,6 +14,20 @@ const App = () => {
     const [isActive, setActive] = useState("true");
     const menuClick = () => setActive(!isActive)
 
+    const [totalPointsEarned, setTotalPointsEarned] = useState('0 pts')
+    const [availablePoints, setAvailablePoints] = useState(totalPointsEarned)
+
+    const [rerender, setRerenderer] = useState(false)
+
+    useEffect(() => {
+        setAvailablePoints(localStorage.getItem('availablePoints'))
+    }, []);
+
+    useEffect(() => {
+      setTotalPointsEarned(localStorage.getItem('totalPoints'));
+    
+    }, []);
+
     useEffect(() => {
         if(localStorage.getItem('id')) {
             setIsLoggedIn(true)
@@ -24,11 +38,34 @@ const App = () => {
         <div className='App'>
             <Routes>
                
-                <Route path="*" element={isLoggedIn ? <Home isLoggedIn={loginUser} status={isLoggedIn} menuClick={menuClick} setActive={setActive} isActive={isActive}/> : < Login loginFunction={loginUser}/>}></Route>
+                <Route path="*" element={isLoggedIn ? <Home 
+                                                        isLoggedIn={loginUser} 
+                                                        status={isLoggedIn} 
+                                                        menuClick={menuClick} 
+                                                        setActive={setActive} 
+                                                        isActive={isActive}
+                                                        availablePoints={availablePoints}
+                                                        totalPointsEarned={totalPointsEarned}
+                                                    /> : < Login loginFunction={loginUser}/>}></Route>
 
-                <Route path="rewards" element={isLoggedIn ? <Rewards isLoggedIn={loginUser} status={isLoggedIn} menuClick={menuClick} setActive={setActive} isActive={isActive}/> : < Login loginFunction={loginUser}/>}></Route>
+                <Route path="rewards" element={isLoggedIn ? <Rewards 
+                                                                isLoggedIn={loginUser} 
+                                                                status={isLoggedIn} 
+                                                                menuClick={menuClick} 
+                                                                setActive={setActive} 
+                                                                isActive={isActive}
+                                                                availablePoints={availablePoints}
+                                                            
+                                                            /> : < Login loginFunction={loginUser}/>}></Route>
 
-                <Route path="upload" element={isLoggedIn ? <Upload isLoggedIn={loginUser} status={isLoggedIn} menuClick={menuClick} setActive={setActive} isActive={isActive}/> : < Login loginFunction={loginUser}/>}></Route>
+                <Route path="upload" element={isLoggedIn ? <Upload 
+                                                                isLoggedIn={loginUser} 
+                                                                status={isLoggedIn} 
+                                                                menuClick={menuClick} 
+                                                                setActive={setActive} 
+                                                                isActive={isActive}
+                                                                
+                                                            /> : < Login loginFunction={loginUser}/>}></Route>
                 
                 <Route path="register" element={<Register loginFunction={loginUser}/>}></Route>
                 
