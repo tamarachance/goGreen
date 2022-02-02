@@ -79,6 +79,15 @@ module.exports= {
             VALUES ('${image_Url}', '${createdAt}', ${actionValue}, '${description}', ${user_id});
         `).catch(err => console.log(err))
 
-        res.status(200).send('success')
+        let getPoints = await sequelize.query(`
+            SELECT sum(actionValue) FROM uploads
+            WHERE user_id = ${user_id}
+        `)
+
+        let points = {
+            totalPoints: getPoints[0][0].sum
+        }
+
+        res.status(200).send(points)
     }
 }
