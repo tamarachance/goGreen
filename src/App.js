@@ -25,8 +25,11 @@ const App = () => {
             <Routes>
                
                 <Route path="*" element={isLoggedIn ? <Home isLoggedIn={loginUser} status={isLoggedIn} menuClick={menuClick} setActive={setActive} isActive={isActive}/> : < Login loginFunction={loginUser}/>}></Route>
+
                 <Route path="rewards" element={isLoggedIn ? <Rewards isLoggedIn={loginUser} status={isLoggedIn} menuClick={menuClick} setActive={setActive} isActive={isActive}/> : < Login loginFunction={loginUser}/>}></Route>
+
                 <Route path="upload" element={isLoggedIn ? <Upload isLoggedIn={loginUser} status={isLoggedIn} menuClick={menuClick} setActive={setActive} isActive={isActive}/> : < Login loginFunction={loginUser}/>}></Route>
+                
                 <Route path="register" element={<Register loginFunction={loginUser}/>}></Route>
                 
             </Routes>
