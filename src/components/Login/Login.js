@@ -62,7 +62,7 @@ const Login = (props) => {
                 />
                 Password:
                 <input 
-                    type="text" 
+                    type="password" 
                     name="password"
                     onChange={formik.handleChange}
                     value={formik.values.password}
