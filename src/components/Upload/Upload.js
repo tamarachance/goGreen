@@ -9,10 +9,10 @@ import NavSide from '../NavSide/NavSide';
 import swal from 'sweetalert';
 import axios from 'axios';
 import {useFormik} from 'formik';
-import { Navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 
-function Upload({ fetchUploads, menuClick, isLoggedIn, setActive, isActive }) {
+function Upload({ menuClick, isLoggedIn, setActive, isActive}) {
     const navigate = useNavigate()
     const [url, setUrl] = useState("")
 
@@ -33,6 +33,9 @@ function Upload({ fetchUploads, menuClick, isLoggedIn, setActive, isActive }) {
         }
         // console.log(bodyObject)
         axios.post("http://localhost:4000/uploads", bodyObject)
+            .then(res => {
+                localStorage.setItem('totalPoints', res.data.totalPoints)
+            })
             .then(() => {
                 swal({
                     title: 'Your rewards are on the way!',
