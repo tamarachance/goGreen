@@ -69,5 +69,16 @@ module.exports= {
         } else {
             res.status(401).send('We do not recognize that email address. Please enter a valid email address.')
         }
+    },
+
+    uploadInfo: async (req, res) => {
+        let { user_id, image_Url, actionValue, description, createdAt } = req.body
+
+        await sequelize.query(`
+            INSERT INTO uploads (image_Url, createat, actionValue, description, user_id)
+            VALUES ('${image_Url}', '${createdAt}', ${actionValue}, '${description}', ${user_id});
+        `).catch(err => console.log(err))
+
+        res.status(200).send('success')
     }
 }
