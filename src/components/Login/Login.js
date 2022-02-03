@@ -11,8 +11,8 @@ const Login = (props) => {
     const navigate = useNavigate();
 
     const initialValues = {
-        email:" ",
-        password:" "
+        email:"",
+        password:""
     }
 
     const onSubmit = (values) => {

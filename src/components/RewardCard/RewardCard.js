@@ -1,6 +1,5 @@
 import React from "react";
 import './rewardcard.css';
-import image from "../../assets/comingSoon.jpg";
 import swal from "sweetalert";
 import { useNavigate } from "react-router";
 
@@ -39,16 +38,19 @@ const RewardCard = ({ rewardOptions, availablePoints}) => {
 
     return ( 
         <div className="reward-card"> 
-            {rewardOptions.map((rewardOption) => (
-                <div className="reward-preview" key={rewardOption.id}>
-                    <img src={image} alt=" " />
+            {rewardOptions.map((rewardOption) => {
+              // console.log(rewardOption.imgURL)
+              return (
+                  <div className="reward-preview" key={rewardOption.id}>
+                    <img src={rewardOption.imgURL} alt={rewardOption.id} />
                     <br />
                     <h3>{rewardOption.itemName}</h3>
                     <br />
                     <p>{rewardOption.itemCost} pts</p>
                     <button onClick={()=>handleClick(rewardOption.itemCost)}>Select</button>
                 </div>
-            ))}
+              )
+})}
         </div>
      );
 }
