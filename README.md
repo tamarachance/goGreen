@@ -1,4 +1,4 @@
-# New U Fitness
+# GoGreen While You Earn Green 
 ## Summary
 GoGreen is an rewards app where users can record information about green action they are taking throughout the day in exchange for rewards points. Users can build up their rewards point balance and redeem points for goGreen company swag. 
 ## MVP
